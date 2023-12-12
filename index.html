@@ -96,9 +96,14 @@
   }
 
   function SetPosition() {
-    console.log('set webview position -- start');
+      const x = document.getElementById("x").value;
+      const y = document.getElementById("y").value;
+      const w = document.getElementById("width").value;
+      const h = document.getElementById("height").value;
     
-  }
+      var SetPosition = `{"MsdkMethod":"setPosition", "x":${x}, "y":${y}, "width":${w}, "height":${h}}`;
+      msdkCall(SetPosition);
+    }
   
     // MSDK js 测试接口
 	 function msdkCall(data) {
@@ -281,10 +286,10 @@
 
     <p>浏览器设置位置和大小</p>
     <p>
-        <span>x: <input type="text" id="x" size="5"></span>
-        <span>y: <input type="text" id="y" size="5"></span>
-        <span>width: <input type="text" id="width" size="5"></span>
-        <span>height: <input type="text" id="height" size="5"></span>
+        <span>x: <input type="text" id="x" size="3"></span>
+        <span>y: <input type="text" id="y" size="3"></span>
+        <span>w: <input type="text" id="width" size="3"></span>
+        <span>h: <input type="text" id="height" size="3"></span>
       </p>
     <p><input type="button" value="设置浏览器位置和大小" onclick="SetPosition()"></p>
 
